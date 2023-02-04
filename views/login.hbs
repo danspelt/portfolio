@@ -1,0 +1,19 @@
+<nav>
+	<a class="nav" href="/signup">Sigup</a> 
+</nav>
+<div>
+	
+<img id="logo" src="/images/youneeq-logo.png" />
+	<form action="/login" method="post">
+		{{#if error}}
+		<p class="err-msg">Username or password is incorrect</p>
+		{{/if }}
+		<h1>Login</h1>
+		<label>Username:</label>
+		<input type="text" name="username" id="username" placeholder="Enter your username" required autofocus />		
+		<label>Password:</label>
+		<input type="password" name="password" id="password" placeholder="Enter your password" required />
+		<button type="submit" value="Login">Login</button>
+	</form>
+	<script src="login.js"></script>
+</div>

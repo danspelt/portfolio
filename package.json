@@ -1,0 +1,32 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Experienced web developer with a proven track record of delivering successful web projects. Skilled in HTML, CSS, JavaScript, and modern frameworks.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon app.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danspelt/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danspelt/portfolio/issues"
+  },
+  "homepage": "https://github.com/danspelt/portfolio#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.3",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  }
+}
