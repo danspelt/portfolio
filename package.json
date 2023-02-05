@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Experienced web developer with a proven track record of delivering successful web projects. Skilled in HTML, CSS, JavaScript, and modern frameworks.",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "nodemon app.ts",
-    "build": "tsc -p ."
+    "dev": "nodemon app.ts"
   },
   "repository": {
     "type": "git",
