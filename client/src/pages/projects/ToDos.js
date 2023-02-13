@@ -31,7 +31,7 @@ const AddItemForm = ({ onAdd }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Item name" />
+      <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Item name" autoFocus/>
       <button type="submit">Add Item</button>
     </form>
   );
@@ -42,7 +42,7 @@ const ToDos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('http://localhost:3000/items');
+      const result = await axios.get('/todo/items');
       setItems(result.data);
     };
 
@@ -50,19 +50,19 @@ const ToDos = () => {
   }, []);
 
   const handleAdd = async (item) => {
-    const result = await axios.post('http://localhost:3000/items', item);
+    const result = await axios.post('/todo/items', item);
     setItems([...items, result.data]);
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3000/items/${id}`);
+    await axios.delete(`todo/items/${id}`);
     setItems(items.filter(item => item._id !== id));
   };
 
   return (
     <div className="app">
       <header className="header">
-        <h1>CRUD App</h1>
+        <h1>Todo List</h1>
       </header>
       <main className="main">
         <AddItemForm onAdd={handleAdd} />
