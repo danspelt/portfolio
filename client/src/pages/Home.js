@@ -8,12 +8,6 @@ const Home = () => {
       <h2>Projects</h2>
       <ul>
         <li>
-          <Link to="/chat">Chat App</Link>
-        </li>
-        <li>              
-          <Link to="/facebookclone">Facebook Clone</Link>
-        </li>
-        <li>
           <Link to="/todos">To Do List</Link>
         </li>
       </ul>
