@@ -43,6 +43,7 @@ const ToDos = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get('/todo/items');
+      console.log(result.data[0]);
       setItems(result.data);
     };
 

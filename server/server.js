@@ -1,23 +1,38 @@
 const express = require("express");
 const app = express();
-const Todo = require("./models/Todo"); // Mongoose model for to-do items
+const mongoose = require("mongoose");
+
+mongoose.set('strictQuery', true);
+
+mongoose.connect('mongodb://127.0.0.1:27017/test')
+  .then(() => console.log('Connected!'));
+const TodoSchema = new mongoose.Schema({  
+    name: {
+        type: String,
+        required: true
+    },
+});
+const Todo = mongoose.model('Todo', TodoSchema);
 
 app.use(express.json());
 
-app.get("/todos", async (req, res) => {
+app.get("/todo/items", async (req, res) => {
+  console.log("read items", await Todo.find())
   try {
     const todos = await Todo.find();
-    res.send({ todos });
+    console.log("todos", todos)
+    res.json(todos)
   } catch (error) {
     res.status(500).send(error);
   }
 });
 
-app.post("/todos", async (req, res) => {
+app.post("/todo/items", async (req, res) => {
   try {
-    const todo = new Todo(req.body);
-    await todo.save();
-    res.send({ todo });
+    const todo = new Todo(req.body);    
+    await todo.save()
+    console.log(req.body);
+    res.json(todo)  
   } catch (error) {
     res.status(500).send(error);
   }

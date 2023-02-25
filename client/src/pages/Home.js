@@ -13,7 +13,7 @@ const Home = () => {
       </ul>
       <h2>About Dan</h2>
       <p>
-        As a web developer, I have extensive experience in building and
+        As a web developer, I have extensive experience in building and 
         maintaining websites using various web technologies, such as HTML, CSS,
         JavaScript, React, and Next.js. I have a strong understanding of
         responsive design and have experience working with different frameworks
