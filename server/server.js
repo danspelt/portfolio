@@ -49,7 +49,7 @@ app.delete("/todos/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
   res.json('hello')
 })
 
