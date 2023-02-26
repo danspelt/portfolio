@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { io } from 'socket.io-client';
+const socket = io('https://portfolio-api-danspelt.vercel.app:8000', { transports: ['websocket'] });
 
 const Home = () => {
+  socket.emit('server', 'connect');
+  socket.on('connected', status => console.log(status))
   return (
     <div className="portfolio-container">
       <h1>Fullstack Front End Developer</h1>
