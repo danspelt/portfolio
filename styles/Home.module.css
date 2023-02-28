@@ -1,0 +1,42 @@
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  background-color: #f2f2f2;
+}
+
+.heading1,
+.heading2,
+.p {
+  margin: 2em 0;
+  text-align: center;
+}
+.heading1 {
+  font: 3em sans-serif;
+}
+
+.heading2 {
+  font: 1.5em sans-serif;
+}
+
+.p {
+  font: 1.3em sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+.listItem {
+  margin: 10px;
+}
