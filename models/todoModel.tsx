@@ -7,5 +7,5 @@ const ToDoSchema = new Schema({
         required: true,
     },
 });
-const ToDo = models.Todo || model("ToDo", ToDoSchema);
+const ToDo = models.ToDo || model("ToDo", ToDoSchema);
 export default ToDo;

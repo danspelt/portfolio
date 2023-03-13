@@ -1,38 +1,54 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
+
 import styles from "@/styles/todo.module.css";
-import connect from "@/utils/connect";
-import ToDo from "@/models/todoModel";
+
 import Header from "@/componts/Header";
+import { TodoData, TodoI } from "@/interfaces/Todo";
 
-interface TodoType {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+const Todo: React.FC<TodoI> = () => {
+  const createTask = async (newTodo: string) => {
+   const res = await fetch("/api/todos/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: newTodo,
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+  }; // Corrected function to retrieve current value from an input field
+  function getCurrentValue(event: React.FormEvent<HTMLInputElement>): string {
+    return event.currentTarget.value;
+  }
 
-const Todo = ({ todos }) => {
+  // Example usage of getCurrentValue in keyDown event handler
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    const enteredValue = getCurrentValue(event);
+    if (event.key.toLowerCase() === "enter") {
+      createTask(enteredValue);
+      event.currentTarget.value = "";
+      event.preventDefault();
+    }
+  }
+
   return (
     <>
-      <Header page="ToDo" />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        autoFocus
+        onKeyDown={handleKeyDown}
+      />
+
       <div className={styles.main}>
-        {todos.map((todo) => (
+        {todos.map((todo: TodoData) => (
           <li key={todo.id}>{todo.name}</li>
         ))}
       </div>
     </>
   );
-};
-export const getServerSideProps = async () => {
-  try {
-    await connect();
-
-    const todo = await ToDo.find();
-    return {
-      props: {
-        todos: JSON.parse(JSON.stringify(todo)),
-      },
-    };
-  } catch (err) {}
 };
 export default Todo;

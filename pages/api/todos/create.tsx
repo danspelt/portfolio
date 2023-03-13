@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import connect from "@/utils/connect";
-import ToDo from "@/models/todoModel";
+import ToDoModel from "@/models/todoModel";
 
 export default async function create(
   req: NextApiRequest,
@@ -13,7 +13,7 @@ export default async function create(
 
     console.log("creating document");  
 
-    const doc = await ToDo.create(req.body);
+    const doc = await ToDoModel.create(req.body);
 
     console.log("document created");
 
